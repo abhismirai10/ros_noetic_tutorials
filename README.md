@@ -34,25 +34,21 @@ To get started with these tutorials, you need to have ROS Noetic installed on yo
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/abhismirai10/ROS_Noetic.git
+git clone https://github.com/abhismirai10/ros_noetic_tutorials.git
 cd ros_noetic_tutorials
 ```
 
 ## Basic Concepts
 
-### Nodes
+### Nodes and Topics
 
 Learn how to create and manage nodes in ROS. Nodes are the basic building blocks of a ROS system.
-
-- **Python**: [nodes/talker.py](scripts/talker.py)
-- **C++**: [nodes/talker.cpp](src/talker.cpp)
-
-### Topics
-
 Understand how to use topics to communicate between nodes.
 
-- **Python**: [topics/publisher.py](scripts/publisher.py)
-- **C++**: [topics/publisher.cpp](src/publisher.cpp)
+- **Python**: [talker.py](talker_listener/scripts/talker.py)
+- **C++**: [talker.cpp](talker_listener/src/talker.cpp)
+- **Python**: [listener.py](talker_listener/scripts/listner.py)
+- **C++**: [listner.cpp](talker_listener/src/listner.cpp)
 
 ### Services
 
