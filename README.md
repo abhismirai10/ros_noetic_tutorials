@@ -7,8 +7,7 @@ Welcome to the ROS Noetic Tutorials repository! This repository is designed to h
 1. [Introduction](#introduction)
 2. [Getting Started](#getting-started)
 3. [Basic Concepts](#basic-concepts)
-   - [Nodes](#nodes)
-   - [Topics](#topics)
+   - [Nodes and Topics](#nodes-and-topics)
    - [Services](#services)
    - [Parameters](#parameters)
 4. [Intermediate Concepts](#intermediate-concepts)
@@ -47,8 +46,8 @@ Understand how to use topics to communicate between nodes.
 
 - **Python**: [talker.py](talker_listener/scripts/talker.py)
 - **C++**: [talker.cpp](talker_listener/src/talker.cpp)
-- **Python**: [listener.py](talker_listener/scripts/listner.py)
-- **C++**: [listner.cpp](talker_listener/src/listner.cpp)
+- **Python**: [listener.py](talker_listener/scripts/listener.py)
+- **C++**: [listener.cpp](talker_listener/src/listener.py)
 
 ### Services
 
