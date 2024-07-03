@@ -47,7 +47,7 @@ Understand how to use topics to communicate between nodes.
 - **Python**: [talker.py](talker_listener/scripts/talker.py)
 - **C++**: [talker.cpp](talker_listener/src/talker.cpp)
 - **Python**: [listener.py](talker_listener/scripts/listener.py)
-- **C++**: [listener.cpp](talker_listener/src/listener.py)
+- **C++**: [listener.cpp](talker_listener/src/listener.cpp)
 
 ### Services
 
