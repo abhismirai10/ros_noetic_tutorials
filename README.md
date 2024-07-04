@@ -8,6 +8,7 @@ Welcome to the ROS Noetic Tutorials repository! This repository is designed to h
 2. [Getting Started](#getting-started)
 3. [Basic Concepts](#basic-concepts)
    - [Nodes and Topics](#nodes-and-topics)
+   - [Custom Message Types](#custom-message-types)
    - [Services](#services)
    - [Parameters](#parameters)
 4. [Intermediate Concepts](#intermediate-concepts)
@@ -48,6 +49,16 @@ Understand how to use topics to communicate between nodes.
 - **C++**: [talker.cpp](talker_listener/src/talker.cpp)
 - **Python**: [listener.py](talker_listener/scripts/listener.py)
 - **C++**: [listener.cpp](talker_listener/src/listener.cpp)
+
+### Custom Message Types
+
+Learn how to create and use custom message types in ROS. Custom messages allow you to define specific 
+data structures for communication between nodes.
+
+- **Python**: [msg_pub.py](new_message/scripts/msg_pub.py)
+- **Python**: [msg_sub.py](new_message/scripts/msg_sub.py)
+- **C++**: [msg_pub.cpp](new_message/src/msg_pub.cpp)
+- **C++**: [msg_sub.cpp](new_message/src/msg_sub.cpp)
 
 ### Services
 
