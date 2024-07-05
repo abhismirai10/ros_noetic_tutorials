@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<robot name="pan_tilt">
+    
+    <!-- base link -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.2" length="0.01"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+            <material name="yellow">
+                <color rgba="1 1 0 1"/>   
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.03" length="0.2"/>
+            </geometry>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        </collision>
+
+        <!-- <inertial>
+            <mass value="1"/>
+            <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial> -->
+    </link>    
+
+    <!-- first joint  -->
+    <joint name="pan_joint" type="revolute">
+        <origin xyz="0.0 0.0 0.1"/>
+        <parent link="base_link"/>
+        <child link="pan_link"/>
+        <axis xyz="0.0 0.0 1.0"/>
+        <limit lower="-3.14" upper="3.14" effort="300.0" velocity="0.1"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+
+    <!-- pan link -->
+    <link name="pan_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.04" length="0.4"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.0 0.0 0.09"/>
+            <material name="red">
+                <color rgba="0 0 1 1"/>   
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.06" length="0.4"/>
+            </geometry>
+            <origin xyz="0.0 0.0 0.09" rpy="0.0 0.0 0.0"/>
+        </collision>
+
+        <inertial>
+            <mass value="1"/>
+            <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>    
+
+    <!-- second joint  -->
+    <joint name="tilt_joint" type="revolute">
+        <origin xyz="0.0 0.0 0.2"/>
+        <parent link="pan_link"/>
+        <child link="tilt_link"/>
+        <axis xyz="0.0 1.0 0.0"/>
+        <limit lower="-4.64" upper="-1.5" effort="300.0" velocity="0.1"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+
+    <!-- tilt link -->
+    <link name="tilt_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.04" length="0.4"/>
+            </geometry>
+            <origin rpy="0 1.5 0" xyz="0.0 0.0 0.0"/>
+            <material name="green">
+                <color rgba="1 0 0 1"/>   
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.06" length="0.4"/>
+            </geometry>
+            <origin xyz="0.0 1.0 0.0" rpy="0.0 1.5 0.0"/>
+        </collision>
+
+        <inertial>
+            <mass value="1"/>
+            <inertia ixx="1" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>  
+</robot>
