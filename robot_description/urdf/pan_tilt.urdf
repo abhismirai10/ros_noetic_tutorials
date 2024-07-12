@@ -6,9 +6,9 @@
     <link name="base_link">
         <visual>
             <geometry>
-                <cylinder radius="0.2" length="0.01"/>
+                <cylinder radius="0.02" length="0.1"/>
             </geometry>
-            <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0"/>
             <material name="yellow">
                 <color rgba="1 1 0 1"/>   
             </material>
@@ -16,9 +16,9 @@
 
         <collision>
             <geometry>
-                <cylinder radius="0.03" length="0.2"/>
+                <cylinder radius="0.3" length="0.2"/>
             </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
         </collision>
 
         <!-- <inertial>
@@ -27,7 +27,7 @@
         </inertial> -->
     </link>    
 
-    <!-- first joint  -->
+    <!-- first joint  --> 
     <joint name="pan_joint" type="revolute">
         <origin xyz="0.0 0.0 0.1"/>
         <parent link="base_link"/>
@@ -43,7 +43,7 @@
             <geometry>
                 <cylinder radius="0.04" length="0.4"/>
             </geometry>
-            <origin rpy="0 0 0" xyz="0.0 0.0 0.09"/>
+            <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
             <material name="red">
                 <color rgba="0 0 1 1"/>   
             </material>
@@ -53,7 +53,7 @@
             <geometry>
                 <cylinder radius="0.06" length="0.4"/>
             </geometry>
-            <origin xyz="0.0 0.0 0.09" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
         </collision>
 
         <inertial>
@@ -64,11 +64,11 @@
 
     <!-- second joint  -->
     <joint name="tilt_joint" type="revolute">
-        <origin xyz="0.0 0.0 0.2"/>
+        <origin xyz="0.0 0.0 0.4"/>
         <parent link="pan_link"/>
         <child link="tilt_link"/>
         <axis xyz="0.0 1.0 0.0"/>
-        <limit lower="-4.64" upper="-1.5" effort="300.0" velocity="0.1"/>
+        <limit lower="-4.64" upper="3.14" effort="300.0" velocity="0.1"/>
         <dynamics damping="50" friction="1"/>
     </joint>
 
