@@ -71,7 +71,8 @@
 
 
     <!-- Wrist roll link properties -->
-    <xacro:property name="wrist_roll_width" value="0.02" />
+    <xacro:property name="wrist_roll_width" value="bottom_link
+No transform from [bottom_link] to [base_link]0.02" />
     <xacro:property name="wrist_roll_len" value="0.04" />
 
 
@@ -245,7 +246,8 @@
 
     <gazebo reference="shoulder_pitch_link">
         <material>Gazebo/White</material>
-    </gazebo>
+    </gazebo>from distutils.core import setup
+from setuptools import find_packages
 
     <joint name="elbow_roll_joint" type="revolute">
         <parent link="shoulder_pitch_link"/>
@@ -529,5 +531,25 @@
     </joint>
 
     <xacro:include filename="$(find robot_description)/urdf/sensors/xtion_pro_live.urdf.xacro"/>
+
+    <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <!-- Transmissions for ROS Control -->
+
+    <xacro:transmission_block joint_name="shoulder_pan_joint"/>
+    <xacro:transmission_block joint_name="shoulder_pitch_joint"/>
+    <xacro:transmission_block joint_name="elbow_roll_joint"/>
+    <xacro:transmission_block joint_name="elbow_pitch_joint"/>
+    <xacro:transmission_block joint_name="wrist_roll_joint"/>
+    <xacro:transmission_block joint_name="wrist_pitch_joint"/>
+    <xacro:transmission_block joint_name="gripper_roll_joint"/>
+    <xacro:transmission_block joint_name="finger_joint1"/>
+    <xacro:transmission_block joint_name="finger_joint2"/>
+        
+    <!-- ros_control plugin -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/seven_dof_arm</robotNamespace>
+        </plugin>
+    </gazebo>
 
 </robot>

@@ -13,7 +13,6 @@ find_package(catkin REQUIRED COMPONENTS
 
 # Install launch files
 install(FILES
-  launch/pan_tilt.launch
   launch/seven_dof_arm.launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )
