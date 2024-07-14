@@ -1,24 +1,29 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>new_message</name>
+  <name>a02_new_msg_type</name>
   <version>0.0.0</version>
-  <description>The new_message package</description>
+  <description>The a02_new_msg_type package</description>
 
   <maintainer email="abhilinux2@todo.todo">abhilinux2</maintainer>
 
   <license>TODO</license>
 
   <buildtool_depend>catkin</buildtool_depend>
+
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
+
   <build_export_depend>roscpp</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
+
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
 
+  <!-- to create new msg type -->
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
 
   <export>
+
   </export>
 </package>

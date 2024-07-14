@@ -1,5 +1,5 @@
 import rospy
-from new_message.msg import new_msg
+from a02_new_msg_type.msg import new_msg
 
 def new_msg_talker():
     pub = rospy.Publisher("new_msg_chatter", new_msg, queue_size=10)

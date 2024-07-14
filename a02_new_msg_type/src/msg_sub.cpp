@@ -1,9 +1,9 @@
 #include "ros/ros.h"
-#include "new_message/new_msg.h"
+#include "a02_new_msg_type/new_msg.h"
 #include "iostream"
 #include "sstream"
 
-void callback(const new_message::new_msg::ConstPtr& msg){
+void callback(const a02_new_msg_type::new_msg::ConstPtr& msg){
     ROS_INFO("%s", msg->greeting.c_str());
     ROS_INFO("%d",msg->number);
 }

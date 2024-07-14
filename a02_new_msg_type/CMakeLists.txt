@@ -1,5 +1,6 @@
+#name and cmake version requirements
 cmake_minimum_required(VERSION 3.0.2)
-project(new_message)
+project(a02_new_msg_type)
 
 #find and set up ruquired packages
 find_package(catkin REQUIRED COMPONENTS
@@ -34,8 +35,8 @@ include_directories(
 add_executable(msg_pub.cpp src/msg_pub.cpp)
 add_executable(msg_sub.cpp src/msg_sub.cpp)
 
-add_dependencies(msg_pub.cpp new_message_generate_messages_cpp)
-add_dependencies(msg_sub.cpp new_message_generate_messages_cpp)
+add_dependencies(msg_pub.cpp a02_new_msg_type_generate_messages_cpp)
+add_dependencies(msg_sub.cpp a02_new_msg_type_generate_messages_cpp)
 
 target_link_libraries(msg_pub.cpp ${catkin_LIBRARIES})
 target_link_libraries(msg_sub.cpp ${catkin_LIBRARIES})
@@ -46,4 +47,3 @@ catkin_install_python(PROGRAMS
   scripts/msg_sub.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
-

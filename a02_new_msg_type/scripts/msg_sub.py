@@ -1,5 +1,5 @@
 import rospy
-from new_message.msg import new_msg
+from a02_new_msg_type.msg import new_msg
 
 def callback(data):
     print("%s = %d" %(data.greeting, data.number))
