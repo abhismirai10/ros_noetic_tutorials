@@ -14,5 +14,5 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
   <!-- Launch RViz for visualization with a specific configuration file -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find a04_pan_tilt_robot)/urdf.rviz" required="true" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find a04_pan_tilt_robot)/default.rviz" required="true" />
 </launch>
