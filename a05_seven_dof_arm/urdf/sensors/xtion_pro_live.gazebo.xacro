@@ -2,11 +2,10 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="xtion_pro_live_rgbd_camera_gazebo" params="name">
     <gazebo reference="${name}_link">
-      <!-- Depth (IR) -->
-      <sensor type="depth" name="${name}_frame_sensor">
+      <!-- Depth (IR) Sensor -->
+      <sensor type="depth" name="${name}_depth_frame_sensor">
         <always_on>true</always_on>
         <update_rate>6.0</update_rate>
-
         <camera>
           <horizontal_fov>${58.0 * deg_to_rad}</horizontal_fov>
           <image>
@@ -19,8 +18,7 @@
             <far>1.5</far>
           </clip>
         </camera>
-
-        <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
+        <plugin name="${name}_depth_frame_controller" filename="libgazebo_ros_openni_kinect.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>6.0</updateRate>
           <cameraName>${name}</cameraName>
@@ -32,23 +30,22 @@
           <frameName>${name}_optical_frame</frameName>
           <pointCloudCutoff>0.05</pointCloudCutoff>
           <pointCloudCutoffMax>5</pointCloudCutoffMax>
-
           <rangeMax>1.5</rangeMax>
           <!-- Distortion parameters not supported in gazebo 1.9.* plugins -->
-          <!--distortionK1>0.00000001</distortionK1>
+          <!--
+          <distortionK1>0.00000001</distortionK1>
           <distortionK2>0.00000001</distortionK2>
           <distortionK3>0.00000001</distortionK3>
           <distortionT1>0.00000001</distortionT1>
-          <distortionT2>0.00000001</distortionT2-->
+          <distortionT2>0.00000001</distortionT2>
+          -->
         </plugin>
       </sensor>
 
-      <!-- RGB -->
-
-      <sensor type="depth" name="${name}_frame_sensor">
+      <!-- RGB Sensor -->
+      <sensor type="camera" name="${name}_rgb_frame_sensor">
         <always_on>true</always_on>
         <update_rate>6.0</update_rate>
-
         <camera>
           <horizontal_fov>${58.0 * deg_to_rad}</horizontal_fov>
           <image>
@@ -61,30 +58,15 @@
             <far>1.5</far>
           </clip>
         </camera>
-
-
-
-        <plugin name="${name}_frame_controller" filename="libgazebo_ros_openni_kinect.so">
+        <plugin name="${name}_rgb_frame_controller" filename="libgazebo_ros_camera.so">
           <alwaysOn>true</alwaysOn>
           <updateRate>6.0</updateRate>
           <cameraName>${name}</cameraName>
-
           <imageTopicName>rgb/image_raw</imageTopicName>
           <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-          <pointCloudTopicName>rgb/points</pointCloudTopicName>
-
-          <depthImageTopicName>depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName> 
-
           <frameName>${name}_optical_frame</frameName>
-          <pointCloudCutoff>0.05</pointCloudCutoff>
-          <pointCloudCutoffMax>5</pointCloudCutoffMax>
-          <rangeMax>1.5</rangeMax>
-
         </plugin>   
-     </sensor> 
-
-
+      </sensor> 
     </gazebo>
   </xacro:macro>
 </robot>

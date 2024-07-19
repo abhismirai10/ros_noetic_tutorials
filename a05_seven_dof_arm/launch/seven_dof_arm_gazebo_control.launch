@@ -1,0 +1,41 @@
+<launch>
+  <!-- Start Gazebo with an empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find a05_seven_dof_arm)/urdf/seven_dof_arm.xacro" />
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model seven_dof_arm -param robot_description"/>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find a05_seven_dof_arm)/config/seven_dof_arm_gazebo_control.yaml" command="load"/>
+
+  <!-- Load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/seven_dof_arm" args=  "joint_state_controller
+                                                joint1_position_controller
+                                                joint2_position_controller
+                                                joint3_position_controller
+                                                joint4_position_controller
+                                                joint5_position_controller
+                                                joint6_position_controller
+                                                joint7_position_controller"/>
+
+  <!-- Convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/seven_dof_arm/joint_states" />
+  </node>
+
+  <!-- Launch RViz for visualization with a specific configuration file -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find a05_seven_dof_arm)/default.rviz" required="true" />
+
+</launch>
