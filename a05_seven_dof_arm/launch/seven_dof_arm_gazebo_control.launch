@@ -35,6 +35,9 @@
     <remap from="/joint_states" to="/seven_dof_arm/joint_states" />
   </node>
 
+  <!-- Start joint_state_publisher_gui node for GUI interaction with joint states -->
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
   <!-- Launch RViz for visualization with a specific configuration file -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find a05_seven_dof_arm)/default.rviz" required="true" />
 
